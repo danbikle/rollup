@@ -37,3 +37,22 @@ Each tar file contains many zip files.
 Each zip file contains many observations.
 
 Each observation is a subsecond sampling of Forex prices.
+
+Now that you have the general idea about one roll-up strategy and a URL leading to data, you can start.
+
+# Steps to collect one second roll-ups
+
+* Clone this repo to your home folder
+
+cd ~
+git clone https://github.com/danbikle/rollup
+
+* Copy Forex tar files from google-drive to data folder under the repo.  When done you should see something like this:
+
+  mkdir ~/rollup/data/
+  cd    ~/rollup/data/
+  ll forex_tarfiles/*tar
+
+
+
+
