@@ -47,7 +47,11 @@ Now that you have the general idea about one roll-up strategy and a URL leading 
 cd ~
 git clone https://github.com/danbikle/rollup
 
-* Copy Forex tar files from google-drive to data folder under the repo.  When done you should see something like this:
+* Copy Forex tar files from google-drive to data folder under the repo:
+
+* https://drive.google.com/drive/folders/1jMFSP-_wTtt5rtdtQuQdtPQr6087xz6K
+
+* When done you should see something like this:
 
   mkdir ~/rollup/data/
   cd    ~/rollup/data/
@@ -57,6 +61,9 @@ git clone https://github.com/danbikle/rollup
 
     dan@h79:~ $ 
     dan@h79:~ $ cd ~/rollup/data/
+    dan@h79:~/rollup/data $ du -sh forex_tarfiles/
+    11G	forex_tarfiles/
+    dan@h79:~/rollup/data $ 
     dan@h79:~/rollup/data $ ll forex_tarfiles/*tar
     -rw-rw-r-- 1 dan dan 2113423360 Nov 11 16:09 forex_tarfiles/audusd.tar
     -rw-rw-r-- 1 dan dan 3000883200 Nov 11 16:13 forex_tarfiles/eurusd.tar
