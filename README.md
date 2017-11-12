@@ -26,11 +26,13 @@ https://drive.google.com/drive/folders/1jMFSP-_wTtt5rtdtQuQdtPQr6087xz6K
 
 The above URL leads to 5 large tar files:
 
-    audusd.tar
-    eurusd.tar
-    gbpusd.tar
-    usdcad.tar
-    usdjpy.tar
+```bash
+audusd.tar
+eurusd.tar
+gbpusd.tar
+usdcad.tar
+usdjpy.tar
+```
 
 Each tar file contains many zip files.
 
@@ -44,8 +46,10 @@ Now that you have the general idea about one roll-up strategy and a URL leading 
 
 * Clone this repo to your home folder
 
-    cd ~
-    git clone https://github.com/danbikle/rollup
+```bash
+cd ~
+git clone https://github.com/danbikle/rollup
+```
 
 * Copy Forex tar files from google-drive to data folder under the repo:
 
@@ -53,9 +57,11 @@ Now that you have the general idea about one roll-up strategy and a URL leading 
 
 * When done you should see something like this:
 
-  mkdir ~/rollup/data/
-  cd    ~/rollup/data/
-  ll forex_tarfiles/*tar
+```bash
+mkdir ~/rollup/data/
+cd    ~/rollup/data/
+ll forex_tarfiles/*tar
+```
 
 * I saw this:
 ```bash
