@@ -114,7 +114,7 @@ tar xf ~/rollup/data/forex_tarfiles/usdjpy.tar
 
 * When I ran the above commands on my laptop, the zip folder had observations going back to 2010.
 
-* Using a few lines of simple Python-Pandas calls, I can inspect the first zip file:
+* I used a few lines of simple Python-Pandas calls to inspect the first zip file:
 
 ```bash
 dan@h79:~/rollup/data $ cd ..
@@ -145,3 +145,22 @@ Type "help", "copyright", "credits" or "license" for more information.
 4  AUD/USD  20100103 21:30:40.813  0.89801  0.89832
 >>>
 ```
+
+* You should try the above Python-Pandas calls on your laptop.
+
+* If you see something similar to what I display above, then you are on the right track.
+
+* You should create a folder to collect CSV files which will contain roll-up data:
+
+```bash
+cd ~/rollup/data/
+mkdir csv1s
+```
+
+* Next, run the script listed below which should roll-up prices from micro-second observations to one-second observations.
+
+```bash
+cd ~/rollup/python
+~/anaconda3/bin/python rollup1s.py
+```
+
