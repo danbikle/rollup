@@ -2,10 +2,6 @@
 
 This repo contains demonstrations of 'rolling up' time series data.
 
-The data comes from the world of Forex.
-
-Each observation is a subsecond sampling of Forex prices.
-
 The idea of 'roll-up' is simple.
 
 I follow these steps to roll-up prices from micro-second observations to one-second observations:
@@ -22,3 +18,22 @@ I follow these steps to roll-up prices from micro-second observations to one-sec
 
 The above steps can be used within loops if the micro-second observations are spread across multiple files.
 
+The data for this repo comes from the world of Forex.
+
+You can find the actual data at the google-drive-URL listed below:
+
+https://drive.google.com/drive/folders/1jMFSP-_wTtt5rtdtQuQdtPQr6087xz6K
+
+The above URL leads to 5 large tar files:
+
+    audusd.tar
+    eurusd.tar
+    gbpusd.tar
+    usdcad.tar
+    usdjpy.tar
+
+Each tar file contains many zip files.
+
+Each zip file contains many observations.
+
+Each observation is a subsecond sampling of Forex prices.
