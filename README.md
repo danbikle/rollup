@@ -99,6 +99,19 @@ echo 'export PATH="${HOME}/anaconda3/bin:$PATH"' >> ~/.bashrc
 bash
 ```
 
+* Un-tar zip files from the tar files:
+
+```bash
+cd ~/rollup/data
+mkdir csv
+cd    csv
+tar xf ~/rollup/data/forex_tarfiles/audusd.tar
+tar xf ~/rollup/data/forex_tarfiles/eurusd.tar
+tar xf ~/rollup/data/forex_tarfiles/gbpusd.tar
+tar xf ~/rollup/data/forex_tarfiles/usdcad.tar
+tar xf ~/rollup/data/forex_tarfiles/usdjpy.tar
+```
+
 
 
 
