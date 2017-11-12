@@ -53,6 +53,20 @@ git clone https://github.com/danbikle/rollup
   cd    ~/rollup/data/
   ll forex_tarfiles/*tar
 
+* I saw this:
+
+    dan@h79:~ $ 
+    dan@h79:~ $ cd ~/rollup/data/
+    dan@h79:~/rollup/data $ ll forex_tarfiles/*tar
+    -rw-rw-r-- 1 dan dan 2113423360 Nov 11 16:09 forex_tarfiles/audusd.tar
+    -rw-rw-r-- 1 dan dan 3000883200 Nov 11 16:13 forex_tarfiles/eurusd.tar
+    -rw-rw-r-- 1 dan dan 2398720000 Nov 11 16:12 forex_tarfiles/gbpusd.tar
+    -rw-rw-r-- 1 dan dan 1845934080 Nov 11 16:13 forex_tarfiles/usdcad.tar
+    -rw-rw-r-- 1 dan dan 2438963200 Nov 11 16:13 forex_tarfiles/usdjpy.tar
+    dan@h79:~/rollup/data $ 
+    dan@h79:~/rollup/data $
+
+
 
 
 
