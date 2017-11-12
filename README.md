@@ -44,8 +44,8 @@ Now that you have the general idea about one roll-up strategy and a URL leading 
 
 * Clone this repo to your home folder
 
-cd ~
-git clone https://github.com/danbikle/rollup
+    cd ~
+    git clone https://github.com/danbikle/rollup
 
 * Copy Forex tar files from google-drive to data folder under the repo:
 
