@@ -19,7 +19,12 @@ fn_l = glob.glob('../data/zip/*zip')
 for fn_s in sorted(fn_l):
     pdb.set_trace()
     fx0_df = pd.read_csv(fn_s, names=['pair','ts','bid','ask'])
-    # goog python pandas string operations
-    ts1s_sr = fx0_df.ts.str.slice(0,17)
+    ts1s_sr        = fx0_df.ts.str.slice(0,17)
+    fx0_df['ts1s'] = ts1s_sr
+    # I should group-by ts1s and avg bid, ask
+    fx1_df = fx0_df.copy()['ts1s','bid']
+    fx2_df = fx1_df.groupby('ts1s').bid.mean()
+    type(fx2_df)
+    fx2_df.head()
     'bye'
 'bye'
