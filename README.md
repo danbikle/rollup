@@ -88,6 +88,16 @@ dan@h79:~/rollup/data $
 dan@h79:~/rollup/data $
 ```
 
+* Install Anaconda Python in your home folder. I work on Linux so I used the commands below:
+
+```bash
+cd ~
+wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+bash Anaconda3-5.0.1-Linux-x86_64.sh
+mv anaconda3/bin/curl anaconda3/bin/curl-ana
+echo 'export PATH="${HOME}/anaconda3/bin:$PATH"' >> ~/.bashrc
+bash
+```
 
 
 
