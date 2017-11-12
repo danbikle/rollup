@@ -27,7 +27,8 @@ for fn_s in sorted(fn_l):
     ask_sr = fx1_df.groupby('ts1s').ask.mean()
     # I should create a DF from bid_sr, ask_sr with ts1s as the index:
     fx2_df = pd.DataFrame({'bid':bid_sr, 'ask':ask_sr})
-    type(fx2_df)
-    fx2_df.head()
+    # I should write it to CSV:
+    csvn_s = fn_s.replace('zip','csv')
+    fx2_df.to_csv('../data/csv1s/'+csvn_s)
     'bye'
 'bye'
