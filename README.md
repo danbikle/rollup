@@ -51,14 +51,22 @@ cd ~
 git clone https://github.com/danbikle/rollup
 ```
 
-* Copy Forex tar files from google-drive to data folder under the repo:
+* Make a data folder in the above repo:
+
+```bash
+mkdir ~/rollup/data/
+cd    ~/rollup/data/
+```
+
+* Study the URL below:
 
 * https://drive.google.com/drive/folders/1jMFSP-_wTtt5rtdtQuQdtPQr6087xz6K
+
+* Copy Forex tar files from the above URL to 'data' folder under the repo:
 
 * When done you should see something like this:
 
 ```bash
-mkdir ~/rollup/data/
 cd    ~/rollup/data/
 ll forex_tarfiles/*tar
 ```
