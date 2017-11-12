@@ -10,7 +10,6 @@ Demo:
 
 """
 
-# goog: python glob
 import glob
 import pandas as pd
 import pdb
@@ -20,5 +19,7 @@ fn_l = glob.glob('../data/zip/*zip')
 for fn_s in sorted(fn_l):
     pdb.set_trace()
     fx0_df = pd.read_csv(fn_s, names=['pair','ts','bid','ask'])
+    # goog python pandas string operations
+    ts1s_sr = fx0_df.ts.str.slice(0,17)
     'bye'
 'bye'
