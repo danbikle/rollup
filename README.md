@@ -103,8 +103,8 @@ bash
 
 ```bash
 cd ~/rollup/data
-mkdir csv
-cd    csv
+mkdir zip
+cd    zip
 tar xf ~/rollup/data/forex_tarfiles/audusd.tar
 tar xf ~/rollup/data/forex_tarfiles/eurusd.tar
 tar xf ~/rollup/data/forex_tarfiles/gbpusd.tar
@@ -112,6 +112,36 @@ tar xf ~/rollup/data/forex_tarfiles/usdcad.tar
 tar xf ~/rollup/data/forex_tarfiles/usdjpy.tar
 ```
 
+* When I ran the above commands on my laptop, the zip folder had observations going back to 2010.
+
+* Using a few lines of simple Python-Pandas calls, I can inspect the first zip file:
+
+```bash
+dan@h79:~/rollup/data $ cd ..
+dan@h79:~/rollup $ cd python/
+dan@h79:~/rollup/python $ python
+Python 3.6.2 |Anaconda, Inc.| (default, Sep 30 2017, 18:42:57) 
+[GCC 7.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas as pd
+>>> my_df = pd.read_csv('../data/zip/AUDUSD-2010-01.zip')
+>>> my_df.head()
+   AUD/USD  20100103 21:28:00.773  0.89808  0.89832
+0  AUD/USD  20100103 21:28:16.897  0.89806  0.89836
+1  AUD/USD  20100103 21:30:36.304  0.89770  0.89830
+2  AUD/USD  20100103 21:30:36.550  0.89766  0.89804
+3  AUD/USD  20100103 21:30:40.813  0.89801  0.89832
+4  AUD/USD  20100103 21:31:06.413  0.89803  0.89834
+>>>
 
 
-
+>>> my_df = pd.read_csv('../data/zip/AUDUSD-2010-01.zip',names=['pair','ts','bid','ask'])
+>>> my_df.head()
+      pair                     ts      bid      ask
+0  AUD/USD  20100103 21:28:00.773  0.89808  0.89832
+1  AUD/USD  20100103 21:28:16.897  0.89806  0.89836
+2  AUD/USD  20100103 21:30:36.304  0.89770  0.89830
+3  AUD/USD  20100103 21:30:36.550  0.89766  0.89804
+4  AUD/USD  20100103 21:30:40.813  0.89801  0.89832
+>>>
+```
