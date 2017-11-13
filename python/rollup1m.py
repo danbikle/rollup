@@ -39,6 +39,6 @@ for fn_s in sorted(fn_l):
     # bzip2 -cd ../data/csv1m/AUDUSD-2010-01.csv.bz2|head
     del(fx0_df)
     del(fx1_df)
-    del(ts1s_sr)
+    del(ts1m_sr)
     'bye'
 'bye'
