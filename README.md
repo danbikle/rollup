@@ -222,4 +222,16 @@ cd ~/rollup/python
 * I ran the above script and saw some output which is displayed below:
 
 ```bash
+dan@h79:~ $ 
+dan@h79:~ $ cd ~/rollup/python
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ ~/anaconda3/bin/python rollup1m.py
+Wrote:  ../data/csv1m/AUDUSD-2010-01.csv.bz2
+Wrote:  ../data/csv1m/AUDUSD-2010-02.csv.bz2
+Wrote:  ../data/csv1m/AUDUSD-2010-03.csv.bz2
+Wrote:  ../data/csv1m/AUDUSD-2010-04.csv.bz2
+
+SNIP ...
+
 ```
