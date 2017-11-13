@@ -212,4 +212,14 @@ dan@h79:~/rollup $
 
 https://github.com/danbikle/rollup/blob/master/python/rollup1m.py
 
+* Next, run the script with these shell commands:
 
+```bash
+cd ~/rollup/python
+~/anaconda3/bin/python rollup1m.py
+```
+
+* I ran the above script and saw some output which is displayed below:
+
+```bash
+```
