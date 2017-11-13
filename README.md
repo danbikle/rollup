@@ -128,11 +128,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 3  AUD/USD  20100103 21:30:40.813  0.89801  0.89832
 4  AUD/USD  20100103 21:31:06.413  0.89803  0.89834
 >>>
-
+```
 
 It appears the data has no column headings.
 I used a Pandas parameter named: 'names' to add my headings:
 
+```bash
 >>> my_df = pd.read_csv('../data/zip/AUDUSD-2010-01.zip',names=['pair','ts','bid','ask'])
 >>> my_df.head()
       pair                     ts      bid      ask
