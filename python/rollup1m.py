@@ -16,9 +16,13 @@ import os
 
 # I should ensure that the output folder exists:
 os.system('mkdir -p ../data/csv1m/')
+# The above folder should eventually hold the stage 2 rollup files.
 
+# I should get a list of the input files AKA 'stage 1 files':
 fn_l = glob.glob('../data/csv1s/*bz2')
 
+# I should loop through all the input files.
+# Each input file should have a corresponding output file:
 for fn_s in sorted(fn_l):
     fx0_df         = pd.read_csv(fn_s)
     ts1m_sr        = fx0_df.ts1s.str.slice(0,14)
