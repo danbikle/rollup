@@ -37,8 +37,11 @@ for fn_s in sorted(fn_l):
     # pd.read_csv(csvn_s).head()
     # Or bash:
     # bzip2 -cd ../data/csv1m/AUDUSD-2010-01.csv.bz2|head
+    # I should prevent memory consumption:
     del(fx0_df)
     del(fx1_df)
     del(ts1m_sr)
+    del(ask_sr)
+    del(bid_sr)
     'bye'
 'bye'
