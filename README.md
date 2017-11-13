@@ -204,3 +204,10 @@ dan@h79:~/rollup $
 ```
 
 
+* If you got this far on your laptop, you should keep going
+
+* I see the files in csv1s to be the first stage of a 3 stage rollup
+
+* To start on the second stage, inpsect this script:
+
+
