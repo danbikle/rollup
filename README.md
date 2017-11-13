@@ -210,4 +210,6 @@ dan@h79:~/rollup $
 
 * To start on the second stage, inpsect this script:
 
+https://github.com/danbikle/rollup/blob/master/python/rollup1m.py
+
 
