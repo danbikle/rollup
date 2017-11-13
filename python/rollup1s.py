@@ -25,18 +25,20 @@ for fn_s in sorted(fn_l):
     ts1s_sr        = fx0_df.ts.str.slice(0,17)
     fx0_df['ts1s'] = ts1s_sr
     # I should group-by ts1s and avg bid, ask
-    fx1_df = fx0_df.copy()[['ts1s','bid','ask']]
     ask_sr = fx0_df.groupby('ts1s').ask.mean()
     bid_sr = fx0_df.groupby('ts1s').bid.mean()
     # I should create a DF from bid_sr, ask_sr with ts1s as the index:
-    fx2_df = pd.DataFrame({'bid':bid_sr, 'ask':ask_sr})
+    fx1_df = pd.DataFrame({'bid':bid_sr, 'ask':ask_sr})
     # I should write it to CSV:
     csvn_s = fn_s.replace('zip','csv').replace('/csv/','/csv1s/')
-    fx2_df.to_csv(csvn_s+'.bz2',float_format='%4.6f',compression='bz2')
+    fx1_df.to_csv(csvn_s+'.bz2',float_format='%4.6f',compression='bz2')
     print('Wrote: ',csvn_s+'.bz2')
     # I can inspect output with python:
     # pd.read_csv(csvn_s+'.bz2').head()
     # Or bash:
     # bzip2 -cd AUDUSD-2010-01.csv.bz2|head
+    delete(fx0_df)
+    delete(fx1_df)
+    delete(ts1s_sr)
     'bye'
 'bye'
