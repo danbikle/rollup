@@ -21,7 +21,6 @@ os.system('mkdir -p ../data/csv1m/')
 fn_l = glob.glob('../data/csv1s/*bz2')
 
 for fn_s in sorted(fn_l):
-    pdb.set_trace()
     fx0_df = pd.read_csv(fn_s)
     ts1m_sr        = fx0_df.ts1s.str.slice(0,14)
     fx0_df['ts1m'] = ts1m_sr
@@ -31,5 +30,15 @@ for fn_s in sorted(fn_l):
     # I should create a DF from bid_sr, ask_sr with ts1m as the index:
     fx1_df = pd.DataFrame({'bid':bid_sr, 'ask':ask_sr})
     # I should write it to CSV:
+    csvn_s = fn_s.replace('csv1s','csv1m')
+    fx1_df.to_csv(csvn_s,float_format='%4.6f',compression='bz2')
+    print('Wrote: ',csvn_s)
+    # I can inspect output with python:
+    # pd.read_csv(csvn_s).head()
+    # Or bash:
+    # bzip2 -cd ../data/csv1m/AUDUSD-2010-01.csv.bz2|head
+    del(fx0_df)
+    del(fx1_df)
+    del(ts1s_sr)
     'bye'
 'bye'
