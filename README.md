@@ -33,7 +33,7 @@ usdjpy.tar
 
 Each tar file contains many zip files.
 
-Each zip file contains many observations.
+Each zip file contains many observations (in CSV format).
 
 Each observation is a subsecond sampling of Forex prices.
 
@@ -41,18 +41,18 @@ Now that you have the general idea about one roll-up strategy and a URL leading 
 
 # Steps to collect one second roll-ups
 
-* Clone this repo to your home folder
+* Clone this repo to your home folder (not some other folder).
 
 ```bash
 cd ~
 git clone https://github.com/danbikle/rollup
 ```
 
-* Make a data folders in the above repo:
+* Make data folders in the above repo:
 
 ```bash
 mkdir -p ~/rollup/data/forex_tarfiles/
-cd    ~/rollup/data/
+cd       ~/rollup/data/
 ```
 
 * Study the URL below:
@@ -64,8 +64,7 @@ cd    ~/rollup/data/
 * When done you should see five tar files in that folder:
 
 ```bash
-cd    ~/rollup/data/
-ll forex_tarfiles/*tar
+ls -la ~/rollup/data/forex_tarfiles/*tar
 ```
 
 * I saw this:
@@ -75,7 +74,7 @@ dan@h79:~ $ cd ~/rollup/data/
 dan@h79:~/rollup/data $ du -sh forex_tarfiles/
 11G	forex_tarfiles/
 dan@h79:~/rollup/data $ 
-dan@h79:~/rollup/data $ ll forex_tarfiles/*tar
+dan@h79:~/rollup/data $ ls -la forex_tarfiles/*tar
 -rw-rw-r-- 1 dan dan 2113423360 Nov 11 16:09 forex_tarfiles/audusd.tar
 -rw-rw-r-- 1 dan dan 3000883200 Nov 11 16:13 forex_tarfiles/eurusd.tar
 -rw-rw-r-- 1 dan dan 2398720000 Nov 11 16:12 forex_tarfiles/gbpusd.tar
@@ -99,9 +98,8 @@ bash
 * Un-tar zip files from the tar files into a folder called: 'zip':
 
 ```bash
-cd ~/rollup/data
-mkdir zip
-cd    zip
+mkdir -p ~/rollup/data/zip
+cd       ~/rollup/data/zip
 tar xf ~/rollup/data/forex_tarfiles/audusd.tar
 tar xf ~/rollup/data/forex_tarfiles/eurusd.tar
 tar xf ~/rollup/data/forex_tarfiles/gbpusd.tar
@@ -131,6 +129,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 4  AUD/USD  20100103 21:31:06.413  0.89803  0.89834
 >>>
 
+
+It appears the data has no column headings.
+I used a Pandas parameter named: 'names' to add my headings:
 
 >>> my_df = pd.read_csv('../data/zip/AUDUSD-2010-01.zip',names=['pair','ts','bid','ask'])
 >>> my_df.head()
@@ -162,5 +163,43 @@ cd ~/rollup/python
 
 * I ran the above script on my laptop and it needed 92 minutes to complete.
 
+* I used three shell commands to inspect the output:
+
+```bash
+dan@h79:~/rollup $ du -sh ~/rollup/data/csv1s # How large is the output?
+1.9G	/home/dan/rollup/data/csv1s
+dan@h79:~/rollup $ 
+dan@h79:~/rollup $
+
+
+dan@h79:~/rollup $ ls -la ~/rollup/data/csv1s/ | head
+total 1963144
+drwxrwxr-x 2 dan dan    20480 Nov 12 18:06 .
+drwxrwxr-x 7 dan dan     4096 Nov 12 21:53 ..
+-rw-rw-r-- 1 dan dan  2871751 Nov 12 16:34 AUDUSD-2010-01.csv.bz2
+-rw-rw-r-- 1 dan dan  2348084 Nov 12 16:34 AUDUSD-2010-02.csv.bz2
+-rw-rw-r-- 1 dan dan  3167067 Nov 12 16:34 AUDUSD-2010-03.csv.bz2
+-rw-rw-r-- 1 dan dan  2814488 Nov 12 16:35 AUDUSD-2010-04.csv.bz2
+-rw-rw-r-- 1 dan dan  4727926 Nov 12 16:35 AUDUSD-2010-05.csv.bz2
+-rw-rw-r-- 1 dan dan  4113280 Nov 12 16:35 AUDUSD-2010-06.csv.bz2
+-rw-rw-r-- 1 dan dan  3817810 Nov 12 16:35 AUDUSD-2010-07.csv.bz2
+dan@h79:~/rollup $ 
+dan@h79:~/rollup $ 
+
+
+dan@h79:~/rollup $ ls -la ~/rollup/data/csv1s/ | tail
+-rw-rw-r-- 1 dan dan 10035652 Nov 12 18:03 USDJPY-2017-01.csv.bz2
+-rw-rw-r-- 1 dan dan  8077095 Nov 12 18:03 USDJPY-2017-02.csv.bz2
+-rw-rw-r-- 1 dan dan  9463666 Nov 12 18:04 USDJPY-2017-03.csv.bz2
+-rw-rw-r-- 1 dan dan  8050948 Nov 12 18:04 USDJPY-2017-04.csv.bz2
+-rw-rw-r-- 1 dan dan  9262043 Nov 12 18:05 USDJPY-2017-05.csv.bz2
+-rw-rw-r-- 1 dan dan  9079336 Nov 12 18:05 USDJPY-2017-06.csv.bz2
+-rw-rw-r-- 1 dan dan  5526826 Nov 12 18:05 USDJPY-2017-07.csv.bz2
+-rw-rw-r-- 1 dan dan  5930854 Nov 12 18:06 USDJPY-2017-08.csv.bz2
+-rw-rw-r-- 1 dan dan  5348660 Nov 12 18:06 USDJPY-2017-09.csv.bz2
+-rw-rw-r-- 1 dan dan  5250981 Nov 12 18:06 USDJPY-2017-10.csv.bz2
+dan@h79:~/rollup $ 
+dan@h79:~/rollup $ 
+```
 
 
