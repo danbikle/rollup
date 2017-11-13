@@ -15,13 +15,14 @@ import pandas as pd
 import pdb
 import os
 
+print('Busy writing csv data to ../data/csv5m')
+
 # I should ensure that the output folder exists:
 os.system('mkdir -p ../data/csv5m/')
 
 fn_l = glob.glob('../data/csv1m/*bz2')
 
 for fn_s in sorted(fn_l):
-    pdb.set_trace()
     fx0_df     = pd.read_csv(fn_s)
     ts1m_dt_sr = pd.to_datetime(fx0_df.ts1m, utc=True)
     # I should convert series to unix-time format:
@@ -33,10 +34,11 @@ for fn_s in sorted(fn_l):
     bid_sr = fx0_df.groupby('ts5m').bid.mean()
     # I should create a DF from bid_sr, ask_sr with ts5m as the index:
     fx1_df = pd.DataFrame({'bid':bid_sr, 'ask':ask_sr})
+    # I should get the pair name from fn_s
+    pair_s = fn_s[14:20]
     # I should write it to CSV:
-    csvn_s = fn_s.replace('csv1m','csv5m')
-    fx1_df.to_csv(csvn_s,float_format='%4.6f',compression='bz2')
-    print('Wrote: ',csvn_s)
+    csvn_s = '../data/csv5m/'+pair_s+'.csv'
+    fx1_df.to_csv(csvn_s,float_format='%4.6f', mode='a') # append
     # I can inspect output with python:
     # pd.read_csv(csvn_s).head()
     # Or bash:
@@ -45,6 +47,7 @@ for fn_s in sorted(fn_l):
     del(fx0_df)
     del(fx1_df)
     del(ts1m_dt_sr)
+    del(ts1m_i_sr)
     del(ask_sr)
     del(bid_sr)
     'bye'
