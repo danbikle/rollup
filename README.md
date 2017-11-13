@@ -1,20 +1,18 @@
 # README.md
 
-This repo contains demonstrations of 'rolling up' time series data.
+This repo contains demonstrations of 'rolling up' Forex time series data.
 
 The idea of 'roll-up' is simple.
 
 I follow these steps to roll-up prices from micro-second observations to one-second observations:
 
-* Get a zip file full of micro-second observations from the web(for EURUSD data for example)
+* Get a zip file full of micro-second observations from the web(for EUR/USD data for example)
 * Unzip the file into a CSV file
 * Read the CSV file into a tablular data structure with rows and columns
 * For each observation extract the one-second value from the observation timestamp
 * Load the one-second values into the data structure as a new column called: 'ts1s'
-* Sort the data structure by ts1s
-* Find the mean prices for each ts1s group in the structure
 * Use group-by syntax to extract a smaller data structure containing mean prices at one-second intervals
-* Write the smaller structure to CSV file
+* Write the smaller structure to a compressed CSV file
 
 The above steps can be used within loops if the micro-second observations are spread across multiple files.
 
@@ -51,10 +49,10 @@ cd ~
 git clone https://github.com/danbikle/rollup
 ```
 
-* Make a data folder in the above repo:
+* Make a data folders in the above repo:
 
 ```bash
-mkdir ~/rollup/data/
+mkdir -p ~/rollup/data/forex_tarfiles/
 cd    ~/rollup/data/
 ```
 
@@ -62,9 +60,9 @@ cd    ~/rollup/data/
 
 * https://drive.google.com/drive/folders/1jMFSP-_wTtt5rtdtQuQdtPQr6087xz6K
 
-* Copy Forex tar files from the above URL to 'data' folder under the repo:
+* Copy Forex tar files from the above URL to 'data/forex_tarfiles' folder under the repo:
 
-* When done you should see something like this:
+* When done you should see five tar files in that folder:
 
 ```bash
 cd    ~/rollup/data/
@@ -99,7 +97,7 @@ echo 'export PATH="${HOME}/anaconda3/bin:$PATH"' >> ~/.bashrc
 bash
 ```
 
-* Un-tar zip files from the tar files:
+* Un-tar zip files from the tar files into a folder called: 'zip':
 
 ```bash
 cd ~/rollup/data
@@ -150,17 +148,20 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 * If you see something similar to what I display above, then you are on the right track.
 
-* You should create a folder to collect CSV files which will contain roll-up data:
-
-```bash
-cd ~/rollup/data/
-mkdir csv1s
-```
-
 * Next, run the script listed below which should roll-up prices from micro-second observations to one-second observations.
 
 ```bash
 cd ~/rollup/python
 ~/anaconda3/bin/python rollup1s.py
 ```
+
+* The script should write the rolled-up prices to this folder:
+
+```bash
+~/rollup/data/csv1s/
+```
+
+* I ran the above script on my laptop and it needed 92 minutes to complete.
+
+
 
