@@ -28,7 +28,7 @@ for fn_s in sorted(fn_l):
     ts1m_sr        = fx0_df.ts1s.str.slice(0,14)
     fx0_df['ts1m'] = ts1m_sr
     # Each observation now has a 1 minute 'tag'
-    # I should group-by ts1m and avg bid, ask
+    # I should group-by ts1m and find mean of bid, ask
     ask_sr = fx0_df.groupby('ts1m').ask.mean()
     bid_sr = fx0_df.groupby('ts1m').bid.mean()
     # I should create a DF from bid_sr, ask_sr with ts1m as the index:
