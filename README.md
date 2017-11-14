@@ -305,6 +305,110 @@ cd ~/rollup/python
 ~/anaconda3/bin/python rollup5m.py
 ```
 
+
 * I ran the above script and saw some output which is displayed below:
 
 ```bash
+dan@h79:~ $ 
+dan@h79:~ $ cd ~/rollup/python
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ 
+
+
+dan@h79:~/rollup/python $ ~/anaconda3/bin/python rollup5m.py
+Busy writing csv data to ../data/csv5m
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ 
+
+
+dan@h79:~/rollup/python $ ls -la ../data/csv5m/
+total 164928
+drwxrwxr-x 2 dan dan    24576 Nov 12 23:14 ./
+drwxrwxr-x 7 dan dan     4096 Nov 12 21:53 ../
+-rw-rw-r-- 1 dan dan 34238569 Nov 13 16:16 AUDUSD.csv
+-rw-rw-r-- 1 dan dan 32808984 Nov 13 16:17 EURUSD.csv
+-rw-rw-r-- 1 dan dan 32813856 Nov 13 16:17 GBPUSD.csv
+-rw-rw-r-- 1 dan dan 32598386 Nov 13 16:18 USDCAD.csv
+-rw-rw-r-- 1 dan dan 36373896 Nov 13 16:18 USDJPY.csv
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ 
+```
+
+Notice that rollup5m.py had a duration of about 4 minutes.
+
+Also notice that the output files are not compressed:
+
+```bash
+dan@h79:~/rollup/python $ du -sh ../data/csv5m/*csv
+33M	../data/csv5m/AUDUSD.csv
+32M	../data/csv5m/EURUSD.csv
+32M	../data/csv5m/GBPUSD.csv
+32M	../data/csv5m/USDCAD.csv
+35M	../data/csv5m/USDJPY.csv
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ 
+
+
+dan@h79:~/rollup/python $ head ../data/csv5m/*csv
+==> ../data/csv5m/AUDUSD.csv <==
+ts5m,ask,bid
+1262582700,0.898340,0.898070
+1262583000,0.898287,0.897719
+1262583300,0.898743,0.898154
+1262583600,0.898810,0.898414
+1262583900,0.898893,0.898490
+1262584200,0.898905,0.898445
+1262584500,0.898817,0.898367
+1262584800,0.898789,0.898437
+1262585100,0.898852,0.898521
+
+==> ../data/csv5m/EURUSD.csv <==
+ts5m,ask,bid
+1262582700,1.431004,1.430730
+1262583000,1.430770,1.430507
+1262583300,1.430667,1.430382
+1262583600,1.430913,1.430610
+1262583900,1.430832,1.430522
+1262584200,1.430533,1.430124
+1262584500,1.430241,1.429957
+1262584800,1.430351,1.430098
+1262585100,1.430225,1.429979
+
+==> ../data/csv5m/GBPUSD.csv <==
+ts5m,ask,bid
+1262582700,1.613610,1.612887
+1262583000,1.612035,1.611283
+1262583300,1.611810,1.610866
+1262583600,1.611708,1.611048
+1262583900,1.611226,1.610816
+1262584200,1.611391,1.610671
+1262584500,1.611557,1.610947
+1262584800,1.611461,1.610957
+1262585100,1.611229,1.610783
+
+==> ../data/csv5m/USDCAD.csv <==
+ts5m,ask,bid
+1262583000,1.052640,1.051770
+1262583600,1.052650,1.051780
+1262583900,1.052625,1.051763
+1262584800,1.052540,1.051710
+1262585100,1.052320,1.051670
+1262585400,1.051597,1.051092
+1262585700,1.051200,1.050860
+1262586000,1.050981,1.050466
+1262586300,1.050900,1.050248
+
+==> ../data/csv5m/USDJPY.csv <==
+ts5m,ask,bid
+1262582700,93.002000,92.979500
+1262583000,93.011806,92.979472
+1262583300,93.001834,92.970416
+1262583600,93.008867,92.967100
+1262583900,93.000000,92.967000
+1262584200,92.997900,92.963178
+1262584500,93.015885,92.984903
+1262584800,93.001022,92.977433
+1262585100,93.057137,93.033794
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $
+```
