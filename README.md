@@ -297,3 +297,14 @@ dan@h79:~/rollup/data $
 * To start on the third stage, inspect this script:
 
 https://github.com/danbikle/rollup/blob/master/python/rollup5m.py
+
+* Next, run the above script with these shell commands:
+
+```bash
+cd ~/rollup/python
+~/anaconda3/bin/python rollup5m.py
+```
+
+* I ran the above script and saw some output which is displayed below:
+
+```bash
