@@ -234,4 +234,66 @@ Wrote:  ../data/csv1m/AUDUSD-2010-04.csv.bz2
 
 SNIP ...
 
+Wrote:  ../data/csv1m/USDJPY-2017-07.csv.bz2
+Wrote:  ../data/csv1m/USDJPY-2017-08.csv.bz2
+Wrote:  ../data/csv1m/USDJPY-2017-09.csv.bz2
+Wrote:  ../data/csv1m/USDJPY-2017-10.csv.bz2
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ 
+dan@h79:~/rollup/python $ 
 ```
+
+* The above script needed 15 minutes to run on my laptop.
+
+* The output folder was smaller than the input folder:
+
+```bash
+dan@h79:~/rollup/python $ cd ~/rollup/data/
+dan@h79:~/rollup/data $ 
+dan@h79:~/rollup/data $ du -sh csv1s csv1m
+1.9G	csv1s
+95M	csv1m
+dan@h79:~/rollup/data $ 
+dan@h79:~/rollup/data $
+```
+
+* I inspected the first and last files in the output folder:
+
+```bash
+dan@h79:~/rollup/data $ bzip2 -cd csv1m/AUDUSD-2010-01.csv.bz2 | head
+ts1m,ask,bid
+20100103 21:28,0.898340,0.898070
+20100103 21:30,0.898245,0.897845
+20100103 21:31,0.898340,0.898030
+20100103 21:32,0.898275,0.897310
+20100103 21:34,0.898290,0.897690
+20100103 21:36,0.898737,0.897947
+20100103 21:37,0.898855,0.898205
+20100103 21:38,0.898670,0.898240
+20100103 21:39,0.898710,0.898225
+dan@h79:~/rollup/data $
+dan@h79:~/rollup/data $
+
+
+dan@h79:~/rollup/data $ bzip2 -cd csv1m/USDJPY-2017-10.csv.bz2 | head
+ts1m,ask,bid
+20171001 21:03,112.620443,112.466786
+20171001 21:04,112.617667,112.486333
+20171001 21:05,112.573250,112.497125
+20171001 21:06,112.574225,112.484707
+20171001 21:07,112.566472,112.486515
+20171001 21:08,112.592050,112.461283
+20171001 21:09,112.587962,112.456269
+20171001 21:10,112.533788,112.492685
+20171001 21:11,112.547400,112.491900
+dan@h79:~/rollup/data $ 
+dan@h79:~/rollup/data $
+```
+
+* If you got this far on your laptop, you should keep going
+
+* I see the files in csv1m to be the second stage of a 3 stage rollup
+
+* To start on the third stage, inpsect this script:
+
+https://github.com/danbikle/rollup/blob/master/python/rollup5m.py
