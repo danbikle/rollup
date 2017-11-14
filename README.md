@@ -294,6 +294,6 @@ dan@h79:~/rollup/data $
 
 * I see the files in csv1m to be the second stage of a 3 stage rollup
 
-* To start on the third stage, inpsect this script:
+* To start on the third stage, inspect this script:
 
 https://github.com/danbikle/rollup/blob/master/python/rollup5m.py
